@@ -1,7 +1,14 @@
 import { greet } from "./utils/greet";
+import PostInput from "./components/PostInput";
 
 function App(): JSX.Element {
-  return <h1>{greet("World")}</h1>;
+  return (
+    <>
+      <PostInput />
+    </>
+  );
 }
 
 export default App;
+
+
