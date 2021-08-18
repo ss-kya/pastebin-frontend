@@ -5,5 +5,5 @@ export interface IPaste {
 }
 
 export interface IProp {
-  post: IPaste
+  post: IPaste;
 }

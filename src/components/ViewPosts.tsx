@@ -55,7 +55,7 @@ function ViewPosts(): JSX.Element {
             <td>{post.post_title}</td>
             <td>{post.post_desc}</td>
             <td>
-              <EditPost post={post}/>
+              <EditPost post={post} />
               {/* Pass props into editPost component to connect post description and 'edit' modal */}
             </td>
             <td>
