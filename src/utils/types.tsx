@@ -3,3 +3,7 @@ export interface IPaste {
   post_title: string;
   post_desc: string;
 }
+
+export interface IProp {
+  post: IPaste
+}
