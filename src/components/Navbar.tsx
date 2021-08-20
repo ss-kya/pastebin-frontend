@@ -1,5 +1,5 @@
 import React from "react";
-import pastebin from "./pastebin.png";
+import pastebin from "../utils/pastebin.png";
 
 function Navbar(): JSX.Element {
   return (
