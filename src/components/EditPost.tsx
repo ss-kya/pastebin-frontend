@@ -55,6 +55,7 @@ function EditPost({ post }: IProp): JSX.Element {
                 <b>Title</b>
               </h6>
               <input
+                id="edit-titlebox"
                 type="text"
                 className="form-control"
                 value={title}
@@ -68,6 +69,7 @@ function EditPost({ post }: IProp): JSX.Element {
                 <b>Text</b>
               </h6>
               <textarea
+                id="edit-textbox"
                 className="form-control"
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}

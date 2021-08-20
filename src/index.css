@@ -27,6 +27,10 @@ body {
   max-width: 800px;
 }
 
+#edit-textbox, #edit-titlebox {
+  height: 200px;
+}
+
 #titlebox, #posttable {
   max-width: 800px;
 }
