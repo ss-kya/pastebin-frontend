@@ -40,7 +40,7 @@ function ViewPosts(): JSX.Element {
   // [] makes one request
 
   return (
-    <table className="table mt-5 text-center">
+    <table id="posttable" className="table mt-5 text-center">
       <thead>
         <tr>
           <th>Title</th>

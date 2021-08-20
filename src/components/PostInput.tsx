@@ -23,13 +23,11 @@ function PostInput(): JSX.Element {
 
   return (
     <>
-      <h1 id="header" className="mt-2">
-        Pastebin
-      </h1>
       <form className="form-group mt-3" onSubmit={onSubmitPost}>
         <div>
           <label>Paste Title</label>
           <input
+            id="titlebox"
             type="text"
             className="form-control"
             value={title}
@@ -37,14 +35,15 @@ function PostInput(): JSX.Element {
             onChange={(e) => setTitle(e.target.value)}
           />
         </div>
-        <div id="textbox" className="mt-3">
+        <div className="mt-3">
           <label htmlFor="exampleFormControlTextarea1">Paste Text</label>
           <textarea
+            id="textbox"
             value={description}
             placeholder="Your text here"
             onChange={(e) => setDescription(e.target.value)}
             className="form-control"
-            id="exampleFormControlTextarea1"
+            // id="exampleFormControlTextarea1"
           ></textarea>
         </div>
         <button className="btn btn-success mt-3">Save Post</button>
