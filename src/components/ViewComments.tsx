@@ -31,6 +31,7 @@ const ViewComments = ({ post }: ListCommentProp): JSX.Element => {
         (comment) => comment.comment_id !== id
       );
       setComments(filteredComments);
+      console.log(deletePost);
     } catch (err) {
       console.log(err.message);
     }
