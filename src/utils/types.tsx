@@ -7,3 +7,13 @@ export interface IPaste {
 export interface IProp {
   post: IPaste;
 }
+
+export interface CommentProp {
+  comment_id: number;
+  comment_desc: string;
+  post_id: number;
+}
+
+export interface ListCommentProp {
+  post: IPaste;
+}

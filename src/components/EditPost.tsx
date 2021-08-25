@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { IProp } from "../utils/types";
+import AddComment from "./AddComment";
+import ViewComments from "./ViewComments";
 
 function EditPost({ post }: IProp): JSX.Element {
   const [title, setTitle] = useState(post.post_title);
@@ -19,11 +21,16 @@ function EditPost({ post }: IProp): JSX.Element {
         }
       );
       console.log(response);
-      // window.location= "/"
+      window.location.reload();
     } catch (err) {
       console.log(err.message);
     }
   };
+
+  // const afterUpdateCallback = (func:IProp) => {
+  //   setTitle()
+  //   setDescription(func)
+  // };
 
   return (
     <>
@@ -34,7 +41,7 @@ function EditPost({ post }: IProp): JSX.Element {
         data-toggle="modal"
         data-target={`#id${post.post_id}`}
       >
-        Edit
+        📝
       </button>
 
       {/* Modal */}
@@ -55,9 +62,9 @@ function EditPost({ post }: IProp): JSX.Element {
                 <b>Title</b>
               </h6>
               <input
-                id="edit-titlebox"
                 type="text"
                 className="form-control"
+                placeholder="Your title here..."
                 value={title}
                 // Update title description when text is edited
                 onChange={(e) => setTitle(e.target.value)}
@@ -70,10 +77,13 @@ function EditPost({ post }: IProp): JSX.Element {
               </h6>
               <textarea
                 id="edit-textbox"
-                className="form-control"
+                placeholder="Your text here..."
+                className="form-control mb-3"
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
               />
+              <AddComment post={post} />
+              <ViewComments post={post} />
             </div>
 
             {/* Modal footer */}

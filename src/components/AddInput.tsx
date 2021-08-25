@@ -1,11 +1,10 @@
 import { useState } from "react";
 
-function PostInput(): JSX.Element {
+function AddInput(): JSX.Element {
   const [description, setDescription] = useState("");
   const [title, setTitle] = useState("");
 
   const onSubmitPost = async () => {
-    // e.preventDefault();
     try {
       const body = { title, description };
       const response = await fetch("http://localhost:4000/input", {
@@ -31,7 +30,7 @@ function PostInput(): JSX.Element {
             type="text"
             className="form-control"
             value={title}
-            placeholder="Your title here"
+            placeholder="Your title here..."
             onChange={(e) => setTitle(e.target.value)}
           />
         </div>
@@ -40,7 +39,7 @@ function PostInput(): JSX.Element {
           <textarea
             id="textbox"
             value={description}
-            placeholder="Your text here"
+            placeholder="Your text here..."
             onChange={(e) => setDescription(e.target.value)}
             className="form-control"
             // id="exampleFormControlTextarea1"
@@ -52,4 +51,4 @@ function PostInput(): JSX.Element {
   );
 }
 
-export default PostInput;
+export default AddInput;

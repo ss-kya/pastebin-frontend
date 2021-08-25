@@ -6,21 +6,6 @@ import EditPost from "./EditPost";
 function ViewPosts(): JSX.Element {
   const [posts, setPosts] = useState<IPaste[]>([]);
 
-  // delete post
-  const deletePost = async (id: number) => {
-    try {
-      const deletePost = await fetch(`http://localhost:4000/post/${id}`, {
-        method: "DELETE",
-      });
-
-      setPosts(posts.filter((post) => post.post_id !== id));
-
-      console.log(deletePost);
-    } catch (err) {
-      console.log(err.message);
-    }
-  };
-
   // fetch all posts
   const getPosts = async () => {
     try {
@@ -39,8 +24,23 @@ function ViewPosts(): JSX.Element {
   }, []);
   // [] makes one request
 
+  // delete post
+  const deletePost = async (id: number) => {
+    try {
+      const deletePosts = await fetch(`http://localhost:4000/post/${id}`, {
+        method: "DELETE",
+      });
+
+      console.log(deletePosts);
+      const filteredPosts = posts.filter((post) => post.post_id !== id);
+      setPosts(filteredPosts);
+    } catch (err) {
+      console.log(err.message);
+    }
+  };
+
   return (
-    <table id="posttable" className="table mt-5 text-center">
+    <table id="posttable" className="table table table-hover mt-5 text-center">
       <thead>
         <tr>
           <th>Title</th>
@@ -56,6 +56,7 @@ function ViewPosts(): JSX.Element {
             <td>{post.post_desc}</td>
             <td>
               <EditPost post={post} />
+              {/* afterUpdateCallback={getPosts}  */}
               {/* Pass props into editPost component to connect post description and 'edit' modal */}
             </td>
             <td>
@@ -63,7 +64,7 @@ function ViewPosts(): JSX.Element {
                 className="btn btn-danger"
                 onClick={() => deletePost(post.post_id)}
               >
-                Delete
+                ⓧ
               </button>
             </td>
           </tr>

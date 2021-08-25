@@ -20,6 +20,7 @@
 body {
   margin-left: 30px;
   margin-right: 30px;
+  /* background-color: #d4eded; */
 }
 
 #textbox {
@@ -27,8 +28,7 @@ body {
   max-width: 800px;
 }
 
-#edit-textbox,
-#edit-titlebox {
+#edit-textbox {
   height: 200px;
 }
 
